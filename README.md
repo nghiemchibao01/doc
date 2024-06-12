@@ -1,42 +1,22 @@
 ---
-id: Overview
-title: Tổng quan
-sidebar_label: Tổng quan
+id: EC
+title: EC
+sidebar_label: EC
 ---
 
-## Tống quan task
-- Thêm chức năng mới: Bán những sản phẩm quy đổi bằng điểm
-- Những luồng ảnh hưởng:
-	+ Luồng tạo, cập nhật Product (EC)
-	+ Luồng import (EC)
-	+ Luồng export (EC)
-	+ Luồng order (Front)
-## Sơ lượt chức năng
-### EC
-- Sử dụng id liên kết sản phẩm 5 (cooperation_id5) và id liên kết sản phẩm 6 (cooperation_id6) của bảng w2_Product
-=> phân biệt sản phẩm thường và sản phẩm quy đổi bằng điểm.
-- Hiển thị thêm thông tin dùng điểm của những order có sản phẩm quy đổi bằng điểm.
-### Front
-Khi là sản phẩm quy đổi bằng tiền: 
-- Sử dụng button add to cart khác và hiển thị nội dung chuyên biệt (ProductDetail).
-- Thay đổi lần lượt ở các trang CartList, OrderPayment, OrderConfirm, OrderComplete để hiện thị thông tin của chức năng mới.
+import ModalViewImage from '@site/src/components/ModalViewImage';
 
-## Phạm vi ảnh hưởng
-### Front
-- Màn hình chi tiết sản phẩm (ProductDetail)
-- Màn hình Cart (CartList)
-- Màn hình CartListLp (CartListLP)
-- Màn hình Landing Page
-- Màn hình thanh toán order (OrderPayment)
-- Màn hình xác nhận order (OrderConfirm)
-- Màn hình hoàn thành đơn hàng (OrderComplete)
-- Màn hình chi tiết lịch sử đơn hàng (OrderHistoryDetail)
-
-### EC
-- Màn hình xác nhận order (OrderConfirm)
-- Màn hình danh sách Product (ProductList)
-- Màn hình đăng ký/cập nhật Product (ProductRegister)
-- Man hình cập nhật đơn hàng (OrderModifyInput, OrderModifyConfirm)
-
-### Batch MasterFileImport
-- Kiểm tra dữ liệu của cooperation_id5, cooperation_id6 khi thêm, cập nhật product, product variation.
+## Tổng quan
+### Trang ProductList
+- Thêm 1 chọn lọc mới: 【Pt優待区分(固定[1]／%[2]／Ptのみ[3])】
+=> Có thể sử dụng chọn lọc mới đúng
+### Trang ProductRegister
+- Thay đổi hiển thị 2 field 商品連携ID5, 商品連携ID6 lần lượt thành 【Pt優待区分(固定[1]／%[2] ]/Ptのみ[3])】 và 【Pt優待価格／割引率(%)】
+- Sử dụng 2 field trên để phân loại cách sử dụng điểm khác nhau và số điểm sẽ dùng.
+### Trang MasterExportSettingRegister
+- Bảng OrderItem: thêm 2 field mới exchange_point_item_amount (交換ポイント数) và exchange_point_item_quantity (利用ポイント数／ポイント利用額)
+- Hiển thị 2 field mới được thêm và sử dụng bình thường đối với bảng có 2 field mới
+## Demo tạo Product mới
+### Trường hợp 1 (Tạo product với phân loại 1 hoặc 3)
+#### Bước 1
+### Trường hợp 2 (Tạo product với phân loại 2)
