@@ -8,7 +8,6 @@ flowchart TB
 
   subgraph CouponScheduleRegister.aspx
     B
-    B1
     C
   end
 
@@ -24,8 +23,7 @@ flowchart TB
 
   Start([Bắt đầu]) --> A[/Chọn thêm mới\n thông tin/]
     A --> B[/Nhập thông tin\n thêm mới/]
-    B --> B1[/"Chọn xác nhận"/]
-    B1 --> C{"Kiểm tra
+    B --> |Xác nhận| C{"Kiểm tra
         thông tin đã nhập"}
     C --> |OK| E("Hiển thị thông tin lịch
         phát hành phiếu giảm giá đã nhập")
