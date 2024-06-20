@@ -18,21 +18,18 @@ flowchart TB
   subgraph CouponScheduleConfirm.aspx
     E
     F
-    G
   end
 
-  Start([Bắt đầu]) --> A[/Chọn thêm mới\n thông tin/]
+  Start([Bắt đầu]) --> A[/Thêm mới\n thông tin/]
     A --> B[/Nhập thông tin\n thêm mới/]
     B --> |Xác nhận| C{"Kiểm tra
         thông tin đã nhập"}
     C --> |OK| E("Hiển thị thông tin lịch
         phát hành phiếu giảm giá đã nhập")
-    C --> |NG| D(Hiển thị thông tin lỗi)
+    C --> |NG| D(Hiển thị thông báo lỗi)
     D --> B
-    E --> F[/"Chọn đăng ký"/]
-    F --> G[("Lưu thông tin vào
-        database")]
-    G --> H("Hiển thị danh sách
+    E --> |Đăng ký| F[("Lưu thông tin vào\n Database")]
+    F --> H("Hiển thị danh sách
         thiết lập lịch phát hành
         phiếu giảm giá")
     H --> End([Kết thúc])
