@@ -3,7 +3,6 @@ flowchart TB
 
   subgraph CouponScheduleList.aspx
     A
-    K
   end
 
   subgraph CouponScheduleConfirm.aspx
@@ -37,5 +36,34 @@ flowchart TB
   G --> |Chỉnh sửa| H[("Cập nhật\n thông tin database")]
   H --> I(Hiển thị danh sách\n thiết lập lịch phát hành\n phiếu giảm giá)
   I --> End([Kết thúc])
+  
+```
+
+### Sơ đồ luồng xóa lịch phát hành
+
+```mermaid
+flowchart TB
+
+  subgraph CouponScheduleList.aspx
+    A
+    D
+  end
+
+  subgraph CouponScheduleConfirm.aspx
+    A1
+    B
+    B1
+    C
+  end
+
+  Start([Bắt đầu]) --> A[/Chọn thông tin\n cần xóa/]
+  A --> A1("Hiển thị thông tin chi tiết")
+  A1 --> B[/Chọn xóa thông tin/]
+  B --> B1[/"Xác nhận thông báo xóa"/]
+  B1 -->|OK| C[(Xóa thông tin
+      tại database)]
+  B1 -->|Cancel| A1
+  C --> D(Hiển thị danh sách\n thiết lập lịch phát hành\n phiếu giảm giá)
+  D --> End([Kết thúc])
   
 ```
