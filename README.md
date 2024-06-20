@@ -3,6 +3,7 @@ flowchart TB
 
   subgraph CouponScheduleList.aspx
     A
+    I
   end
 
   subgraph CouponScheduleConfirm.aspx
@@ -10,7 +11,6 @@ flowchart TB
     B
     G
     H
-    I
   end
 
   subgraph CouponScheduleRegister.aspx
